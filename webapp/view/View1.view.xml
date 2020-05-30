@@ -1,0 +1,50 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.Innovation.ui5Project.controller.View1" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+					    <Panel xmlns="sap.m" width="auto" expandable="true" expanded="true" id="panel0">
+					        <headerToolbar>
+					            <Toolbar id="toolbar1">
+					                <Title text="Header"/>
+					                <ToolbarSpacer/>
+					                <Button icon="sap-icon://settings"/>
+					                </Toolbar>
+					            
+					        </headerToolbar>
+					        <content>
+					            <Text text="Panel Content" id="text3"/>
+					            <sap.ui.layout.form:Form editable="true" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="form0">
+					                <sap.ui.layout.form:formContainers>
+					                    <sap.ui.layout.form:FormContainer title="Title" id="container2">
+					                        <sap.ui.layout.form:formElements>
+					                            <sap.ui.layout.form:FormElement label="Label" id="element4">
+					                                <sap.ui.layout.form:fields>
+					                                    <Input width="100%" id="input4"/>
+					                                </sap.ui.layout.form:fields>
+					                            </sap.ui.layout.form:FormElement>
+					                            <sap.ui.layout.form:FormElement label="Label" id="element5">
+					                                <sap.ui.layout.form:fields>
+					                                    <Input width="100%" id="input5"/>
+					                                </sap.ui.layout.form:fields>
+					                            </sap.ui.layout.form:FormElement>
+					                            <sap.ui.layout.form:FormElement label="Label" id="element3">
+					                                <sap.ui.layout.form:fields>
+					                                    <Input width="100%" id="input3"/>
+					                                </sap.ui.layout.form:fields>
+					                            </sap.ui.layout.form:FormElement>
+					                        </sap.ui.layout.form:formElements>
+					                    </sap.ui.layout.form:FormContainer>
+					                </sap.ui.layout.form:formContainers>
+					                <sap.ui.layout.form:layout>
+					                    <sap.ui.layout.form:ResponsiveGridLayout id="layout0"/>
+					                </sap.ui.layout.form:layout></sap.ui.layout.form:Form>
+					            </content>
+					        </Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
