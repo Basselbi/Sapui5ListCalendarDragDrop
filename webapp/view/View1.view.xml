@@ -2,19 +2,10 @@
     <Shell id="shell">
         <SplitApp id="app" initialDetail="detail" initialMaster="master">
             <detailPages>
-                <Page id="detail" title="Gant Calendar" backgroundDesign="Solid" class="sapUiStdPage">
-                    <PlanningCalendar id="PC1" 	startDate="{path: 'calendarModel>/startDate'}"
-					rows="{path: 'calendarModel>/people'}" appointmentsVisualization="Filled">
+                <Page id="detail" title="Planning Calendar" backgroundDesign="Solid" class="sapUiStdPage">
+                    <PlanningCalendar id="PC1" startDate="{path: 'calendarModel>/startDate'}" rows="{path: 'calendarModel>/people'}" appointmentsVisualization="Filled">
                         <rows>
-                            <PlanningCalendarRow   title="{calendarModel>name}" text="{calendarModel>role}" 
-								enableAppointmentsDragAndDrop="true" 
-								enableAppointmentsResize="true"
-								 enableAppointmentsCreate="true"
-								  appointmentDrop="handleAppointmentDrop" 
-								  appointmentDragEnter="handleAppointmentDragEnter"
-								   appointmentResize="handleAppointmentResize"
-									appointmentCreate="handleAppointmentCreate" 
-									appointments="{calendarModel>appointments}">
+                            <PlanningCalendarRow title="{calendarModel>name}" text="{calendarModel>role}" enableAppointmentsDragAndDrop="true" enableAppointmentsResize="true" enableAppointmentsCreate="true" appointmentDrop="handleAppointmentDrop" appointmentDragEnter="handleAppointmentDragEnter" appointmentResize="handleAppointmentResize" appointmentCreate="handleAppointmentCreate" appointments="{calendarModel>appointments}">
                                 <appointments>
                                     <unified:CalendarAppointment startDate="{calendarModel>start}" endDate="{calendarModel>end}" icon="{calendarModel>pic}" title="{calendarModel>title}" text="{calendarModel>info}" type="{calendarModel>type}" tentative="{tentative}"></unified:CalendarAppointment>
                                 </appointments>
@@ -36,10 +27,11 @@
                         <dragDropConfig>
                             <dnd:DragDropInfo sourceAggregation="items" targetElement="PC1-Table" targetAggregation="items" dragEnter="onListPlanningCalendardragEnter" dragStart="onListPlanningCalendardragStart" drop="onListPlanningCalendarDrop"/>
                         </dragDropConfig>
-                        <StandardListItem title="{listModel>ProductName}" description="{listModel>ShipperName}" icon="{listModel>ProductPicUrl}" iconDensityAware="false" iconInset="false"/>
+                        <StandardListItem id="listItem" title="{listModel>ProductName}" description="{listModel>ShipperName}" icon="{listModel>ProductPicUrl}" iconDensityAware="false" iconInset="false"/>
                     </List>
                 </Page>
             </masterPages>
         </SplitApp>
     </Shell>
 </mvc:View>
+
