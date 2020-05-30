@@ -1,30 +1,36 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.Innovation.ui5Project.controller.View1" displayBlock="true">
-	<Shell id="shell">
-		<SplitApp id="app" initialDetail="detail"
-		initialMaster="master">
-		<detailPages>
-			<Page
-				id="detail"
-				title="Detail 1"
-				backgroundDesign= "Solid"
-				class="sapUiStdPage">
-				<Label text="Detail page 1" />
-				<Button text="Go to Detail page2" press=".onPressNavToDetail" />
-			</Page>
-		 
-		</detailPages>
-		<masterPages>
-			<Page
-				id="master"
-				title="Master 1"
-				backgroundDesign= "List"
-				icon="sap-icon://action"
-				class="sapUiStdPage">
-				<List>
-					<StandardListItem title="To Master2" type="Navigation" press=".onPressGoToMaster" />
-				</List>
-			</Page>
-		</masterPages>
-		</SplitApp>
-	</Shell>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.Innovation.ui5Project.controller.View1" xmlns:unified="sap.ui.unified" xmlns:dnd="sap.ui.core.dnd" displayBlock="true">
+    <Shell id="shell">
+        <SplitApp id="app" initialDetail="detail" initialMaster="master">
+            <detailPages>
+                <Page id="detail" title="Gant Calendar" backgroundDesign="Solid" class="sapUiStdPage">
+                    <PlanningCalendar id="PC1" startDate="{path: '/startDate'}" rows="{path: '/people'}" appointmentsVisualization="Filled">
+                        <rows>
+                            <PlanningCalendarRow icon="{pic}" title="{name}" text="{role}" enableAppointmentsDragAndDrop="{path:'name', formatter:'.canModifyAppointments'}" enableAppointmentsResize="{path:'name', formatter:'.canModifyAppointments'}" enableAppointmentsCreate="{path:'name', formatter:'.canModifyAppointments'}" appointmentDrop="handleAppointmentDrop" appointmentDragEnter="handleAppointmentDragEnter" appointmentResize="handleAppointmentResize" appointmentCreate="handleAppointmentCreate" appointments="{path : 'appointments', templateShareable: true}">
+                                <appointments>
+                                    <unified:CalendarAppointment startDate="{start}" endDate="{end}" icon="{pic}" title="{title}" text="{info}" type="{type}" tentative="{tentative}"></unified:CalendarAppointment>
+                                </appointments>
+                            </PlanningCalendarRow>
+                        </rows>
+                    </PlanningCalendar>
+                </Page>
+
+            </detailPages>
+            <masterPages>
+                <Page id="master" title="List" backgroundDesign="List" icon="sap-icon://action" class="sapUiStdPage">
+                    <List id="idList" items="{listModel>/}" growing="true" growingThreshold="50" includeItemInSelection="false">
+                        <infoToolbar>
+                            <OverflowToolbar visible="false" id="idInfoToolbar">
+                                <Label id="idFilterLabel"/>
+                            </OverflowToolbar>
+                        </infoToolbar>
+
+                        <dragDropConfig>
+                            <dnd:DragDropInfo sourceAggregation="items" targetElement="PC1-Table" targetAggregation="items" dragEnter="onListPlanningCalendardragEnter" dragStart="onListPlanningCalendardragStart" drop="onListPlanningCalendarDrop"/>
+                        </dragDropConfig>
+                        <StandardListItem title="{listModel>ProductName}" description="{listModel>ShipperName}" icon="{listModel>ProductPicUrl}" iconDensityAware="false" iconInset="false"/>
+                    </List>
+                </Page>
+            </masterPages>
+        </SplitApp>
+    </Shell>
 </mvc:View>
